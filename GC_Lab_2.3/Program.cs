@@ -18,14 +18,42 @@ namespace GC_Lab_2._3
                 Console.WriteLine($"\nExcellent we will test \"{userInput}\" against our tests!\n");
 
                 validateAsName(userInput);
+                validateAsEmail(userInput);
+                validateAsPhoneNumber(userInput);
+                validateAsDate(userInput);
+
 
             } while (checkForLoopCondition());
+        }
+
+        static void validateAsDate(string s)
+        {
+            const string name = "date";
+            var pattern = @"(\d|[012]\d)[\/\.\- ](\d|[012]\d|3[01])[\/\.\- ]\d{4}";
+
+            validateStringtoNamedRegex(s, name, pattern);
         }
 
         static void validateAsName(string s)
         {
             const string name = "name";
-            var pattern = @"^([A-Za-z'-]+\s+){1,5}[A-Za-z'-]*$";
+            var pattern = @"([A-Za-z'\-]+\s+){1,5}[A-Za-z'\-]*";
+
+            validateStringtoNamedRegex(s, name, pattern);
+        }
+
+        static void validateAsPhoneNumber(string s)
+        {
+            const string name = "phone number";
+            var pattern = @"(\d{3}.*){2}\d{4}";
+
+            validateStringtoNamedRegex(s, name, pattern);
+        }
+
+        static void validateAsEmail(string s)
+        {
+            const string name = "email";
+            var pattern = @"[A-Za-z][\w\d\+\.]*@[A-Za-z][\w\d\.]+[A-Za-z]{2,4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
@@ -42,9 +70,6 @@ namespace GC_Lab_2._3
             }
             Console.WriteLine();
         }
-    
-
-        
 
         static void writeRed(string s)
         {
