@@ -21,9 +21,18 @@ namespace GC_Lab_2._3
                 validateAsEmail(userInput);
                 validateAsPhoneNumber(userInput);
                 validateAsDate(userInput);
+                validateAsHTML(userInput);
 
 
             } while (checkForLoopCondition());
+        }
+
+        static void validateAsHTML(string s)
+        {
+            const string name = "html";
+            var pattern = @"<[A-Za-z]\w*>.*<\/[A-Za-z]\w*>";
+
+            validateStringtoNamedRegex(s, name, pattern);
         }
 
         static void validateAsDate(string s)
@@ -100,7 +109,7 @@ namespace GC_Lab_2._3
 
                 if (keyPressed.KeyChar.ToString().ToLower() == "y")
                 {
-                    Console.WriteLine("\nSounds good! Lets Go!\n");
+                    Console.WriteLine("Sounds good! Lets Go!\n");
                     return true;
                 }
                 else if (keyPressed.KeyChar.ToString().ToLower() == "n")
