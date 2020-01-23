@@ -24,21 +24,27 @@ namespace GC_Lab_2._3
 
         static void validateAsName(string s)
         {
-            var pattern = "^[A-Z]?[a-z]+ ?[A-Z]?[a-z]*$";
+            const string name = "name";
+            var pattern = @"^([A-Za-z'-]+\s+){1,5}[A-Za-z'-]*$";
 
-            var match = Regex.Match(s, pattern);
+            validateStringtoNamedRegex(s, name, pattern);
+        }
 
-            if (match.Length > 0)
+        static void validateStringtoNamedRegex(string s, string name, string rx)
+        {
+            if (Regex.IsMatch(s, rx))
             {
-                writeGreen("This matches our name pattern!");
-                Console.WriteLine(match);
+                writeGreen($"This matches our {name} pattern!");
             }
             else
             {
-                writeRed("This does not match our name pattern.");
+                writeRed($"This does not match our {name} pattern.");
             }
             Console.WriteLine();
         }
+    
+
+        
 
         static void writeRed(string s)
         {
@@ -60,9 +66,10 @@ namespace GC_Lab_2._3
 
         static bool checkForLoopCondition()
         {
+            Console.WriteLine();
             while (true)
             {
-                Console.Write("\nDo you want to test another string? (y/n): ");
+                Console.Write("Do you want to test another string? (y/n): ");
                 var keyPressed = Console.ReadKey();
                 Console.WriteLine();
 
