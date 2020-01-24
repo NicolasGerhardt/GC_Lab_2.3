@@ -46,7 +46,7 @@ namespace GC_Lab_2._3
         static void validateAsName(string s)
         {
             const string name = "name";
-            var pattern = @"([A-Za-z'\-]+\s+){1,5}[A-Za-z'\-]*";
+            var pattern = @"([A-Z][A-Za-z'\-]*\s+){1,5}[A-Za-z'\-]*";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
