@@ -38,7 +38,7 @@ namespace GC_Lab_2._3
         static void validateAsDate(string s)
         {
             const string name = "date";
-            var pattern = @"(\d|[012]\d)[\/\.\- ](\d|[012]\d|3[01])[\/\.\- ]\d{4}";
+            var pattern = @"((0?\d)|(1[012]))[\/\.\- ](\d|[012]\d|3[01])[\/\.\- ]\d{4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
@@ -54,7 +54,7 @@ namespace GC_Lab_2._3
         static void validateAsPhoneNumber(string s)
         {
             const string name = "phone number";
-            var pattern = @"(\d{3}.*){2}\d{4}";
+            var pattern = @"(\d{3}.?.?){2}\d{4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
