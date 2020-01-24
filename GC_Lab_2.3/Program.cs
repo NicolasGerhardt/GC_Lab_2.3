@@ -104,15 +104,15 @@ namespace GC_Lab_2._3
             while (true)
             {
                 Console.Write("Do you want to test another string? (y/n): ");
-                var keyPressed = Console.ReadKey();
+                var keyPressed = Console.ReadKey().KeyChar.ToString().ToLower();
                 Console.WriteLine();
 
-                if (keyPressed.KeyChar.ToString().ToLower() == "y")
+                if (keyPressed == "y")
                 {
                     Console.WriteLine("Sounds good! Lets Go!\n");
                     return true;
                 }
-                else if (keyPressed.KeyChar.ToString().ToLower() == "n")
+                else if (keyPressed == "n")
                 {
                     return false;
                 }
