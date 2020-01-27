@@ -62,7 +62,7 @@ namespace GC_Lab_2._3
         static void validateAsEmail(string s)
         {
             const string name = "email";
-            var pattern = @"[A-Za-z][\w\d\+\.]*@[A-Za-z][\w\d\.]+[A-Za-z]{2,4}";
+            var pattern = @"[A-Za-z][\w\d\+\.]*@[A-Za-z][\w\d\.]+\.[A-Za-z]{2,4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
