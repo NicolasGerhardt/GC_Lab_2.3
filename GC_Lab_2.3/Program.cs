@@ -38,7 +38,7 @@ namespace GC_Lab_2._3
         static void validateAsDate(string s)
         {
             const string name = "date";
-            var pattern = @"((0?\d)|(1[012]))[\/\.\- ](\d|[012]\d|3[01])[\/\.\- ]\d{4}";
+            var pattern = @"([0\b]\d|1[012])([\/\.\- ])(\d|[012]\d|3[01])\2\d{4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
@@ -46,7 +46,7 @@ namespace GC_Lab_2._3
         static void validateAsName(string s)
         {
             const string name = "name";
-            var pattern = @"([A-Z][A-Za-z'\-]*\s+){1,5}[A-Za-z'\-]*";
+            var pattern = @"([A-Z][A-Za-z'\-]* )[A-Za-z'\-]*";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
@@ -54,7 +54,7 @@ namespace GC_Lab_2._3
         static void validateAsPhoneNumber(string s)
         {
             const string name = "phone number";
-            var pattern = @"(\d{3}.?.?){2}\d{4}";
+            var pattern = @"\b(\d{3}[ \-\)\.]{0,2}){2}\d{4}";
 
             validateStringtoNamedRegex(s, name, pattern);
         }
@@ -72,6 +72,8 @@ namespace GC_Lab_2._3
             if (Regex.IsMatch(s, rx))
             {
                 writeGreen($"This matches our {name} pattern!");
+                Match match = Regex.Match(s, rx);
+                Console.WriteLine($"Matched on: \"{ match.ToString()}\"");
             }
             else
             {
