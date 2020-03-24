@@ -14,4 +14,4 @@
 * Accept 1 or 2 digits for month and day (in which case the invalid date example below would be valid)
 * Only accept the proper ranges for month (1-12) and day (1-31).
 * Write a method that validates HTML elements 
-    * Example: ```<p> </p> is a valid html element, and <h1 <h1> is not valid. Don’t worry about special cases where you have self-contained HTML elements```
+    * Example: ```<p> </p>``` is a valid html element, and ```<h1 <h1>``` is not valid. Don’t worry about special cases where you have self-contained HTML elements
